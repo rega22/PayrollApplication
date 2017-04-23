@@ -225,15 +225,7 @@ namespace PayrollApplication
 
                 DialogResult dr = MessageBox.Show("Please check the Pay From and To dates!!", "Notice", MessageBoxButtons.OK);
 
-                if (dr.Equals("OK") && cmbPaySelected == false)
-                {
-                    
-                    MessageBox.Show("Now select a Pay Type", "Friendly Advice");
-                }
-
-                else
-                {
-
+                
                     if (cmbPayType.SelectedIndex > -1)
 
                     {
@@ -245,9 +237,15 @@ namespace PayrollApplication
                         }
 
                     }
+
+                    else
+                    {
+
+                        MessageBox.Show("Now select a Pay Type", "Friendly Advice");
+                    }
                 }
             }
-        }
+        
 
 
 
