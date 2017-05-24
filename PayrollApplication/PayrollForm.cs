@@ -36,6 +36,7 @@ namespace PayrollApplication
         bool DatesCheckedTo = false;
         bool EmployeeSelected = false;
         bool cmbPaySelected = false;
+        
         bool OtherEarnings1Valid = false;
         bool OtherEarnings2Valid = false;
         bool OtherEarnings3Valid = false;
@@ -43,22 +44,23 @@ namespace PayrollApplication
         bool OtherDeductions2Valid = false;
         bool OtherDeductions3Valid = false;
 
-        double HoursWorked = 0;
-        double Overtime = 0;
-        double HourlyRate = 0;
-        double OvertimeRate = 0;
-        double SalaryAmount = 0;
-        double SalesReceiptsAmount = 0;
-        double CommissionPercentage = 0;
-        double Commissions = 0;
-        double OtherEarnings1 = 0.00;
-        double OtherEarnings2 = 0.00;
-        double OtherEarnings3 = 0.00;
-        double OtherDeduction1 = 0.00;
-        double OtherDeduction2 = 0.00;
-        double OtherDeduction3 = 0.00;
+        double HoursWorked = 0.00d;
+        double Overtime = 0.00d;
+        double HourlyRate = 0.00d;
+        double OvertimeRate = 0.00d;
+        double SalaryAmount = 0.00d;
+        double SalesReceiptsAmount = 0.00d;
+        double CommissionPercentage = 0.00d;
+        double Commissions = 0.00d;
+        double OtherEarnings1 = 0.00d;
+        double OtherEarnings2 = 0.00d;
+        double OtherEarnings3 = 0.00d;
+        double OtherDeduction1 = 0.00d;
+        double OtherDeduction2 = 0.00d;
+        double OtherDeduction3 = 0.00d;
+        double TotalGrossPay = 0.00;
 
-        
+
 
         public Payroll_form()
         {
@@ -95,7 +97,7 @@ namespace PayrollApplication
             cmbOtherDeductions1.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbOtherDeductions2.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbOtherDeductions3.DropDownStyle = ComboBoxStyle.DropDownList;
-            
+
 
 
 
@@ -125,6 +127,7 @@ namespace PayrollApplication
 
 
             }
+
             cmbCalculationBasis.Items.Add(CalculationBasis);
 
             for (int i = 0; i < OtherEarnings.Length; i++)
@@ -147,6 +150,10 @@ namespace PayrollApplication
             dateTimePicker2.ValueChanged += DateTimePicker2_ValueChanged;
 
         }
+
+       
+
+
 
         private void CmbEmployeeDetails_DrawItem(object sender, DrawItemEventArgs e)
         {
@@ -203,12 +210,12 @@ namespace PayrollApplication
             {
                 SelectEmployee();
 
-                
+
 
 
                 if (DatesCheckedFrom == true || DatesCheckedTo == true)
                 {
-                    
+
 
                     //conn = new SqlConnection("SQL connection string");
                     //conn.Open();
@@ -230,7 +237,7 @@ namespace PayrollApplication
                     txtboxEmployeeID.Enabled = false;
                     txtboxPPSNumber.Enabled = false;
                     cmbPayType.Enabled = true;
-                    
+
                 }
 
 
@@ -247,15 +254,6 @@ namespace PayrollApplication
         {
             if (cmbEmployeeDetails.SelectedIndex == -1) /*Nothing Selected*/
             {
-
-                cmbOtherEarnings1.Click += CmbOtherEarnings1_Click;
-                cmbOtherEarnings2.Click += CmbOtherEarnings2_Click;
-                cmbOtherEarnings3.Click += CmbOtherEarnings3_Click;
-                OtherEarnings1Valid = double.TryParse(txtboxOtherEarnings1.Text, out OtherEarnings1);
-                OtherEarnings2Valid = double.TryParse(txtboxOtherEarnings2.Text, out OtherEarnings2);
-                OtherEarnings3Valid = double.TryParse(txtboxOtherEarnings3.Text, out OtherEarnings3);
-                
-
 
                 MessageBox.Show("Please select an Employee from the dropdown list", "Notice");
             }
@@ -311,10 +309,10 @@ namespace PayrollApplication
 
             else
             {
-               
+
                 if (cmbPayType.SelectedIndex > -1)
                 {
-                    
+
                     cmbOtherEarnings1.Enabled = true;
                     cmbOtherEarnings2.Enabled = true;
                     cmbOtherEarnings3.Enabled = true;
@@ -322,8 +320,9 @@ namespace PayrollApplication
 
                     if (cmbPayType.SelectedIndex == 0) /*Hourly Pay*/
                     {
-
-                        if (string.IsNullOrEmpty(txtboxHoursWorked.Text) && string.IsNullOrEmpty(txtboxOvertime.Text) && string.IsNullOrEmpty(txtboxRateHours.Text))
+                   
+                        if (string.IsNullOrEmpty(txtboxHoursWorked.Text) && string.IsNullOrEmpty(txtboxOvertime.Text) && string.IsNullOrEmpty(txtboxRateHours.Text) || 
+                            (ValidEntryHours == false || ValidEntryHourlyRate == false || ValidEntryOvertime == false))
                         {
                             MessageBox.Show("Please enter Number of Hours, Pay Rate and Overtime", "Attention");
                             txtboxTotalGrossPay.Text = "ERROR";
@@ -334,10 +333,10 @@ namespace PayrollApplication
                     if (cmbPayType.SelectedIndex == 1) /*Salary Pay*/
                     {
 
-                        if (string.IsNullOrEmpty(txtboxBasicPaySalary.Text))
+                        if (string.IsNullOrEmpty(txtboxBasicPaySalary.Text) || ValidEntrySalary == false)
                         {
                             MessageBox.Show("Please enter Basic Pay Amount \nand/or check if employee is on commissions", "Attention");
-
+                            txtboxTotalGrossPay.Text = "ERROR";
                         }
                     }
 
@@ -347,16 +346,17 @@ namespace PayrollApplication
                     {
 
 
-                        if (string.IsNullOrEmpty(txtboxBasicPaySalary.Text) && string.IsNullOrEmpty(txtboxSalesReceipts.Text) && string.IsNullOrEmpty(txtBoxCommissionPercentage.Text))
+                        if (string.IsNullOrEmpty(txtboxBasicPaySalary.Text) && string.IsNullOrEmpty(txtboxSalesReceipts.Text) && string.IsNullOrEmpty(txtBoxCommissionPercentage.Text) 
+                            || (ValidEntrySalary == false || ValidEntrySalesReceipts == false || ValidCommissionPercentage == false))
                         {
 
                             MessageBox.Show("Please enter Basic Pay Amount \nand Total Sales Receipts \nand/or Commission Percentage", "Attention");
-
+                            txtboxTotalGrossPay.Text = "ERROR";
                         }
                     }
                 }
 
-                if((cmbPayType.Enabled == true) || (cmbPayType.SelectedIndex == -1 && (DatesCheckedFrom == true || DatesCheckedTo == true) && EmployeeSelected == true))
+                if ((cmbPayType.Enabled == true) || (cmbPayType.SelectedIndex == -1 && (DatesCheckedFrom == true || DatesCheckedTo == true) && EmployeeSelected == true))
                 {
                     cmbPayType.Enabled = true;
                     MessageBox.Show("Now select a Pay Type", "Friendly Advice");
@@ -390,19 +390,184 @@ namespace PayrollApplication
                 }
             }
 
-            if(OtherEarnings1Valid == false || OtherEarnings2Valid == false || OtherEarnings3Valid == false)
+            if (cmbOtherEarnings1.SelectionStart != -1)
             {
-                MessageBox.Show("Please check the Values entered in Other Earnings!!", "Attention");
-
+                cmbOtherEarnings1.SelectedIndexChanged += CmbOtherEarnings1_SelectedIndexChanged;
             }
-                
+            else
+            {
+                if (cmbOtherEarnings2.SelectionStart != -1)
+                {
+                    cmbOtherEarnings2.SelectedIndexChanged += CmbOtherEarnings2_SelectedIndexChanged;
+                }
+                else
+                {
+                    if (cmbOtherEarnings3.SelectionStart != -1)
+                    {
+                        cmbOtherEarnings3.SelectedIndexChanged += CmbOtherEarnings3_SelectedIndexChanged;
+                    }
 
-            
-            
+                }
+            }
+
+
+
+            pnlDeductions.Visible = false;
+
+
+
+
+            if (cmbOtherDeductions1.SelectionStart != -1)
+            {
+                cmbOtherDeductions1.SelectedIndexChanged += CmbOtherDeductions1_SelectedIndexChanged;
+            }
+
+            else
+            {
+                if (cmbOtherDeductions2.SelectionStart != -1)
+                {
+                    cmbOtherDeductions2.SelectedIndexChanged += CmbOtherDeductions2_SelectedIndexChanged;
+                }
+                else
+                {
+                    if (cmbOtherDeductions3.SelectionStart != -1)
+                    {
+                        cmbOtherDeductions3.SelectedIndexChanged += CmbOtherDeductions3_SelectedIndexChanged;
+                    }
+
+                }
+            }
+
 
         }
 
-        
+        private void CmbOtherEarnings1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtboxOtherEarnings1.Enabled = true;
+            txtboxOtherEarnings1.Leave += TxtboxOtherEarnings1_TextChanged;
+           
+
+        }
+
+        private void CmbOtherEarnings2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtboxOtherEarnings2.Enabled = true;
+            txtboxOtherEarnings2.Leave += TxtboxOtherEarnings2_TextChanged;
+
+        }
+
+        private void CmbOtherEarnings3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtboxOtherEarnings3.Enabled = true;
+            txtboxOtherEarnings3.Leave += TxtboxOtherEarnings3_TextChanged;
+
+        }
+
+
+
+
+
+
+
+        private void CmbOtherDeductions1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtboxOtherDeductions1.Enabled = true;
+            txtboxOtherDeductions1.Leave += TxtboxOtherDeductions1_TextChanged;
+
+           
+
+        }
+
+        private void CmbOtherDeductions2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtboxOtherDeductions2.Enabled = true;
+            txtboxOtherDeductions2.TextChanged += TxtboxOtherDeductions2_TextChanged;
+
+        }
+
+        private void CmbOtherDeductions3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtboxOtherDeductions3.Enabled = true;
+            txtboxOtherDeductions3.TextChanged += TxtboxOtherDeductions1_TextChanged;
+
+        }
+
+        private void TxtboxOtherDeductions1_TextChanged(object sender, EventArgs e)
+        {
+            OtherDeductions1Valid = double.TryParse(txtboxOtherDeductions1.Text, out OtherDeduction1);
+           
+
+            if (OtherDeductions1Valid == false)
+            {
+                MessageBox.Show("Please check the Values entered in Other Deductions!!", "Attention");
+            }
+           
+        }
+
+        private void TxtboxOtherDeductions2_TextChanged(object sender, EventArgs e)
+        {
+            OtherDeductions2Valid = double.TryParse(txtboxOtherDeductions2.Text, out OtherDeduction2);
+
+            if (OtherDeductions2Valid == false)
+            {
+                MessageBox.Show("Please check the Values entered in Other Deductions!!", "Attention");
+            }
+        }
+
+        private void TxtboxOtherDeductions3_TextChanged(object sender, EventArgs e)
+        {
+            OtherDeductions3Valid = double.TryParse(txtboxOtherDeductions3.Text, out OtherDeduction3);
+
+            if (OtherDeductions3Valid == false)
+            {
+                MessageBox.Show("Please check the Values entered in Other Deductions!!", "Attention");
+            }
+        }
+
+
+
+        private void TxtboxOtherEarnings1_TextChanged(object sender, EventArgs e)
+        {
+
+            OtherEarnings1Valid = double.TryParse(txtboxOtherEarnings1.Text, out OtherEarnings1);
+            
+            if (OtherEarnings1Valid == false)
+            {
+                MessageBox.Show("Please check the Values entered in Other Earnings!!", "Attention");
+            }
+
+            TotalGrossPay += OtherEarnings1;
+
+
+        }
+        private void TxtboxOtherEarnings2_TextChanged(object sender, EventArgs e)
+        {
+
+            OtherEarnings2Valid = double.TryParse(txtboxOtherEarnings2.Text, out OtherEarnings2);
+
+            if (OtherEarnings2Valid == false)
+            {
+                MessageBox.Show("Please check the Values entered in Other Earnings!!", "Attention");
+            }
+
+            TotalGrossPay += OtherEarnings2;
+
+        }
+
+        private void TxtboxOtherEarnings3_TextChanged(object sender, EventArgs e)
+        {
+
+            OtherEarnings3Valid = double.TryParse(txtboxOtherEarnings3.Text, out OtherEarnings3);
+
+            if (OtherEarnings3Valid == false)
+            {
+                MessageBox.Show("Please check the Values entered in Other Earnings!!", "Attention");
+            }
+
+            TotalGrossPay += OtherEarnings3;
+        }
+
+
 
         private void SalaryAndCommissionsCalculations()
         {
@@ -441,20 +606,23 @@ namespace PayrollApplication
                 txtboxCommissions.Text = (SalesReceiptsAmount * (CommissionPercentage / 100)).ToString();
                 Commissions = double.Parse(txtboxCommissions.Text);
                 txtboxGrossPaySalaried_Commission.Text = (SalaryAmount + Commissions).ToString();
-                txtboxTotalGrossPay.Text = txtboxGrossPaySalaried_Commission.Text;
+                TotalGrossPay = double.Parse(txtboxGrossPaySalaried_Commission.Text);
+                txtboxTotalGrossPay.Text = TotalGrossPay.ToString();
                 pnlDeductions.Visible = true;
                 pnlOtherEarnings.Visible = true;
-                OtherDeduction1 = double.Parse(txtboxOtherDeductions1.Text);
-                OtherDeduction2 = double.Parse(txtboxOtherDeductions2.Text);
-                OtherDeduction3 = double.Parse(txtboxOtherDeductions3.Text);
+
             }
         }
+
+       
+
+       
 
         private void SalaryPayCalculations()
         {
             ValidEntrySalary = double.TryParse(txtboxBasicPaySalary.Text, out SalaryAmount);
-            bool SalaryAmountValidated = true;
-            if (ValidEntrySalary == false && SalaryAmountValidated == false)
+            
+            if (ValidEntrySalary == false)
             {
                 txtboxBasicPaySalary.ForeColor = ValidEntrySalary ? Color.Black : Color.Red;
 
@@ -527,14 +695,9 @@ namespace PayrollApplication
 
         }
 
-        private void OtherDeductionValidated()
-        {
-            if (OtherDeductions1Valid == false || OtherDeductions2Valid == false || OtherDeductions3Valid == false)
-            {
-                MessageBox.Show("Please check the Values entered in Other Deductions!!", "Attention");
-            }
+       
 
-        }
+       
 
         private void CmbPayType_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -554,6 +717,7 @@ namespace PayrollApplication
                     rbCommissions.Enabled = false;
                     rbCommissions.Checked = false;
                     txtboxSalesReceipts.Enabled = false;
+                    txtBoxCommissionPercentage.Enabled = false;
                     txtboxCommissions.Enabled = false;
                     cmbPaySelected = true;
 
@@ -565,6 +729,7 @@ namespace PayrollApplication
                     pnlSalariedEmployees.Visible = true;
                     rbCommissions.Checked = true;
                     txtboxSalesReceipts.Enabled = true;
+                    txtBoxCommissionPercentage.Enabled = true;
                     txtboxCommissions.Enabled = false;
                     cmbPaySelected = true;
 
@@ -607,6 +772,15 @@ namespace PayrollApplication
             txtboxTotalDeductions.Enabled = false;
         }
 
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
 
+        private void TxtBoxClicked(object sender, EventArgs e)
+        {
+            txtboxHoursWorked.Text = "";
+            
+        }
     }
 }

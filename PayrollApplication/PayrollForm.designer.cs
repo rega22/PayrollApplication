@@ -115,159 +115,148 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 59);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(27, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 17);
+            this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Employee:";
             // 
             // cmbEmployeeDetails
             // 
             this.cmbEmployeeDetails.FormattingEnabled = true;
-            this.cmbEmployeeDetails.Location = new System.Drawing.Point(127, 59);
-            this.cmbEmployeeDetails.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbEmployeeDetails.Location = new System.Drawing.Point(95, 48);
             this.cmbEmployeeDetails.Name = "cmbEmployeeDetails";
-            this.cmbEmployeeDetails.Size = new System.Drawing.Size(289, 24);
+            this.cmbEmployeeDetails.Size = new System.Drawing.Size(218, 21);
             this.cmbEmployeeDetails.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 144);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(27, 117);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 17);
+            this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Pay From:";
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(127, 144);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker1.Location = new System.Drawing.Point(95, 117);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(192, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(145, 20);
             this.dateTimePicker1.TabIndex = 3;
             this.dateTimePicker1.Value = new System.DateTime(2017, 5, 1, 0, 0, 0, 0);
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(399, 144);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker2.Location = new System.Drawing.Point(299, 117);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(192, 22);
+            this.dateTimePicker2.Size = new System.Drawing.Size(145, 20);
             this.dateTimePicker2.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(363, 144);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(272, 117);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 17);
+            this.label3.Size = new System.Drawing.Size(23, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "To:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(47, 69);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(35, 56);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 17);
+            this.label4.Size = new System.Drawing.Size(76, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Hours Worked";
             // 
             // txtboxHoursWorked
             // 
-            this.txtboxHoursWorked.Location = new System.Drawing.Point(164, 65);
-            this.txtboxHoursWorked.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxHoursWorked.Location = new System.Drawing.Point(123, 53);
             this.txtboxHoursWorked.Name = "txtboxHoursWorked";
-            this.txtboxHoursWorked.Size = new System.Drawing.Size(132, 22);
+            this.txtboxHoursWorked.Size = new System.Drawing.Size(100, 20);
             this.txtboxHoursWorked.TabIndex = 0;
+            this.txtboxHoursWorked.Text = "0.00";
+            this.txtboxHoursWorked.Click += new System.EventHandler(this.TxtBoxClicked);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(361, 31);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(271, 25);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 17);
+            this.label5.Size = new System.Drawing.Size(33, 13);
             this.label5.TabIndex = 8;
             this.label5.Text = "Rate:";
             // 
             // txtboxOvertime
             // 
-            this.txtboxOvertime.Location = new System.Drawing.Point(164, 111);
-            this.txtboxOvertime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxOvertime.Location = new System.Drawing.Point(123, 90);
             this.txtboxOvertime.Name = "txtboxOvertime";
-            this.txtboxOvertime.Size = new System.Drawing.Size(132, 22);
+            this.txtboxOvertime.Size = new System.Drawing.Size(100, 20);
             this.txtboxOvertime.TabIndex = 2;
+            this.txtboxOvertime.Text = "0.00";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(73, 114);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(55, 93);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 17);
+            this.label6.Size = new System.Drawing.Size(49, 13);
             this.label6.TabIndex = 9;
             this.label6.Text = "Overtime";
             // 
             // txtboxOvertimeRate
             // 
-            this.txtboxOvertimeRate.Location = new System.Drawing.Point(365, 111);
-            this.txtboxOvertimeRate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxOvertimeRate.Location = new System.Drawing.Point(274, 90);
             this.txtboxOvertimeRate.Name = "txtboxOvertimeRate";
-            this.txtboxOvertimeRate.Size = new System.Drawing.Size(64, 22);
+            this.txtboxOvertimeRate.Size = new System.Drawing.Size(49, 20);
             this.txtboxOvertimeRate.TabIndex = 3;
+            this.txtboxOvertimeRate.Text = "0.00";
             this.txtboxOvertimeRate.Click += new System.EventHandler(this.Overtime_Rate_Click);
             // 
             // txtboxSalesReceipts
             // 
-            this.txtboxSalesReceipts.Location = new System.Drawing.Point(523, 59);
-            this.txtboxSalesReceipts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxSalesReceipts.Location = new System.Drawing.Point(392, 48);
             this.txtboxSalesReceipts.Name = "txtboxSalesReceipts";
-            this.txtboxSalesReceipts.Size = new System.Drawing.Size(132, 22);
+            this.txtboxSalesReceipts.Size = new System.Drawing.Size(100, 20);
             this.txtboxSalesReceipts.TabIndex = 1;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(4, 11);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(3, 9);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(186, 25);
+            this.label8.Size = new System.Drawing.Size(145, 20);
             this.label8.TabIndex = 14;
             this.label8.Text = "Hourly Employees";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(361, 64);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(271, 52);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(138, 17);
+            this.label9.Size = new System.Drawing.Size(105, 13);
             this.label9.TabIndex = 16;
             this.label9.Text = "Total Sales Receipts";
             // 
             // txtboxOtherEarnings1
             // 
-            this.txtboxOtherEarnings1.Location = new System.Drawing.Point(365, 44);
-            this.txtboxOtherEarnings1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxOtherEarnings1.Enabled = false;
+            this.txtboxOtherEarnings1.Location = new System.Drawing.Point(274, 36);
             this.txtboxOtherEarnings1.Name = "txtboxOtherEarnings1";
-            this.txtboxOtherEarnings1.Size = new System.Drawing.Size(132, 22);
+            this.txtboxOtherEarnings1.Size = new System.Drawing.Size(100, 20);
             this.txtboxOtherEarnings1.TabIndex = 10;
+            this.txtboxOtherEarnings1.Text = "0.00";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(15, 19);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(11, 15);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(145, 22);
+            this.label10.Size = new System.Drawing.Size(118, 17);
             this.label10.TabIndex = 18;
             this.label10.Text = "Other Earnings";
             // 
@@ -293,118 +282,112 @@
             this.pnlDeductions.Controls.Add(this.txtboxPAYE);
             this.pnlDeductions.Controls.Add(this.label11);
             this.pnlDeductions.Controls.Add(this.label12);
-            this.pnlDeductions.Location = new System.Drawing.Point(725, 15);
-            this.pnlDeductions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlDeductions.Location = new System.Drawing.Point(544, 12);
             this.pnlDeductions.Name = "pnlDeductions";
-            this.pnlDeductions.Size = new System.Drawing.Size(689, 534);
+            this.pnlDeductions.Size = new System.Drawing.Size(517, 434);
             this.pnlDeductions.TabIndex = 15;
             // 
             // cmbPRSI_Class
             // 
             this.cmbPRSI_Class.FormattingEnabled = true;
-            this.cmbPRSI_Class.Location = new System.Drawing.Point(131, 219);
-            this.cmbPRSI_Class.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbPRSI_Class.Location = new System.Drawing.Point(98, 178);
             this.cmbPRSI_Class.Name = "cmbPRSI_Class";
-            this.cmbPRSI_Class.Size = new System.Drawing.Size(525, 24);
+            this.cmbPRSI_Class.Size = new System.Drawing.Size(395, 21);
             this.cmbPRSI_Class.TabIndex = 3;
             // 
             // cmbOtherDeductions3
             // 
             this.cmbOtherDeductions3.FormattingEnabled = true;
-            this.cmbOtherDeductions3.Location = new System.Drawing.Point(72, 421);
-            this.cmbOtherDeductions3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbOtherDeductions3.Location = new System.Drawing.Point(54, 342);
             this.cmbOtherDeductions3.Name = "cmbOtherDeductions3";
-            this.cmbOtherDeductions3.Size = new System.Drawing.Size(160, 24);
+            this.cmbOtherDeductions3.Size = new System.Drawing.Size(121, 21);
             this.cmbOtherDeductions3.TabIndex = 9;
             // 
             // txtboxOtherDeductions3
             // 
-            this.txtboxOtherDeductions3.Location = new System.Drawing.Point(263, 422);
-            this.txtboxOtherDeductions3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxOtherDeductions3.Location = new System.Drawing.Point(197, 343);
             this.txtboxOtherDeductions3.Name = "txtboxOtherDeductions3";
-            this.txtboxOtherDeductions3.Size = new System.Drawing.Size(132, 22);
+            this.txtboxOtherDeductions3.Size = new System.Drawing.Size(100, 20);
             this.txtboxOtherDeductions3.TabIndex = 10;
+            this.txtboxOtherDeductions3.Text = "0.00";
+            this.txtboxOtherDeductions3.Leave += new System.EventHandler(this.TxtboxOtherDeductions1_TextChanged);
             // 
             // cmbOtherDeductions2
             // 
             this.cmbOtherDeductions2.FormattingEnabled = true;
-            this.cmbOtherDeductions2.Location = new System.Drawing.Point(72, 390);
-            this.cmbOtherDeductions2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbOtherDeductions2.Location = new System.Drawing.Point(54, 317);
             this.cmbOtherDeductions2.Name = "cmbOtherDeductions2";
-            this.cmbOtherDeductions2.Size = new System.Drawing.Size(160, 24);
+            this.cmbOtherDeductions2.Size = new System.Drawing.Size(121, 21);
             this.cmbOtherDeductions2.TabIndex = 7;
             // 
             // txtboxOtherDeductions2
             // 
-            this.txtboxOtherDeductions2.Location = new System.Drawing.Point(263, 391);
-            this.txtboxOtherDeductions2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxOtherDeductions2.Location = new System.Drawing.Point(197, 318);
             this.txtboxOtherDeductions2.Name = "txtboxOtherDeductions2";
-            this.txtboxOtherDeductions2.Size = new System.Drawing.Size(132, 22);
+            this.txtboxOtherDeductions2.Size = new System.Drawing.Size(100, 20);
             this.txtboxOtherDeductions2.TabIndex = 8;
+            this.txtboxOtherDeductions2.Text = "0.00";
+            this.txtboxOtherDeductions2.Leave += new System.EventHandler(this.TxtboxOtherDeductions1_TextChanged);
             // 
             // cmbOtherDeductions1
             // 
             this.cmbOtherDeductions1.FormattingEnabled = true;
-            this.cmbOtherDeductions1.Location = new System.Drawing.Point(72, 357);
-            this.cmbOtherDeductions1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbOtherDeductions1.Location = new System.Drawing.Point(54, 290);
             this.cmbOtherDeductions1.Name = "cmbOtherDeductions1";
-            this.cmbOtherDeductions1.Size = new System.Drawing.Size(160, 24);
+            this.cmbOtherDeductions1.Size = new System.Drawing.Size(121, 21);
             this.cmbOtherDeductions1.TabIndex = 5;
             // 
             // txtboxOtherDeductions1
             // 
-            this.txtboxOtherDeductions1.Location = new System.Drawing.Point(264, 358);
-            this.txtboxOtherDeductions1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxOtherDeductions1.Location = new System.Drawing.Point(198, 291);
             this.txtboxOtherDeductions1.Name = "txtboxOtherDeductions1";
-            this.txtboxOtherDeductions1.Size = new System.Drawing.Size(132, 22);
+            this.txtboxOtherDeductions1.Size = new System.Drawing.Size(100, 20);
             this.txtboxOtherDeductions1.TabIndex = 6;
+            this.txtboxOtherDeductions1.Text = "0.00";
+            this.txtboxOtherDeductions1.Leave += new System.EventHandler(this.TxtboxOtherDeductions1_TextChanged);
             // 
             // cmbCalculationBasis
             // 
             this.cmbCalculationBasis.FormattingEnabled = true;
-            this.cmbCalculationBasis.Location = new System.Drawing.Point(455, 71);
-            this.cmbCalculationBasis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbCalculationBasis.Location = new System.Drawing.Point(341, 58);
             this.cmbCalculationBasis.Name = "cmbCalculationBasis";
-            this.cmbCalculationBasis.Size = new System.Drawing.Size(196, 24);
+            this.cmbCalculationBasis.Size = new System.Drawing.Size(148, 21);
             this.cmbCalculationBasis.TabIndex = 0;
             // 
             // label29
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(43, 332);
-            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label29.Location = new System.Drawing.Point(32, 270);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(172, 22);
+            this.label29.Size = new System.Drawing.Size(140, 17);
             this.label29.TabIndex = 41;
             this.label29.Text = "Other Deductions:";
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(231, 81);
-            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label27.Location = new System.Drawing.Point(173, 66);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(115, 17);
+            this.label27.Size = new System.Drawing.Size(87, 13);
             this.label27.TabIndex = 31;
             this.label27.Text = "Calculation Basis";
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(43, 229);
-            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label23.Location = new System.Drawing.Point(32, 186);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(77, 17);
+            this.label23.Size = new System.Drawing.Size(60, 13);
             this.label23.TabIndex = 29;
             this.label23.Text = "PRSI Class";
             // 
             // txtboxTotalDeductions
             // 
-            this.txtboxTotalDeductions.Location = new System.Drawing.Point(263, 482);
-            this.txtboxTotalDeductions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxTotalDeductions.Enabled = false;
+            this.txtboxTotalDeductions.Location = new System.Drawing.Point(197, 392);
             this.txtboxTotalDeductions.Name = "txtboxTotalDeductions";
-            this.txtboxTotalDeductions.Size = new System.Drawing.Size(132, 22);
+            this.txtboxTotalDeductions.Size = new System.Drawing.Size(100, 20);
             this.txtboxTotalDeductions.TabIndex = 28;
             this.txtboxTotalDeductions.Click += new System.EventHandler(this.All_Taxes_Click);
             // 
@@ -412,57 +395,51 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(43, 486);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Location = new System.Drawing.Point(32, 395);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(151, 22);
+            this.label15.Size = new System.Drawing.Size(119, 17);
             this.label15.TabIndex = 27;
             this.label15.Text = "Total Deductions:";
             // 
             // txtboxPRSI
             // 
-            this.txtboxPRSI.Location = new System.Drawing.Point(524, 271);
-            this.txtboxPRSI.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxPRSI.Location = new System.Drawing.Point(393, 220);
             this.txtboxPRSI.Name = "txtboxPRSI";
-            this.txtboxPRSI.Size = new System.Drawing.Size(132, 22);
+            this.txtboxPRSI.Size = new System.Drawing.Size(100, 20);
             this.txtboxPRSI.TabIndex = 4;
             this.txtboxPRSI.Click += new System.EventHandler(this.All_Taxes_Click);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(365, 279);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Location = new System.Drawing.Point(274, 227);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(39, 17);
+            this.label14.Size = new System.Drawing.Size(32, 13);
             this.label14.TabIndex = 25;
             this.label14.Text = "PRSI";
             // 
             // txtboxUSC
             // 
-            this.txtboxUSC.Location = new System.Drawing.Point(520, 167);
-            this.txtboxUSC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxUSC.Location = new System.Drawing.Point(390, 136);
             this.txtboxUSC.Name = "txtboxUSC";
-            this.txtboxUSC.Size = new System.Drawing.Size(132, 22);
+            this.txtboxUSC.Size = new System.Drawing.Size(100, 20);
             this.txtboxUSC.TabIndex = 2;
             this.txtboxUSC.Click += new System.EventHandler(this.All_Taxes_Click);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(361, 176);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Location = new System.Drawing.Point(271, 143);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(36, 17);
+            this.label13.Size = new System.Drawing.Size(29, 13);
             this.label13.TabIndex = 23;
             this.label13.Text = "USC";
             // 
             // txtboxPAYE
             // 
-            this.txtboxPAYE.Location = new System.Drawing.Point(520, 113);
-            this.txtboxPAYE.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxPAYE.Location = new System.Drawing.Point(390, 92);
             this.txtboxPAYE.Name = "txtboxPAYE";
-            this.txtboxPAYE.Size = new System.Drawing.Size(132, 22);
+            this.txtboxPAYE.Size = new System.Drawing.Size(100, 20);
             this.txtboxPAYE.TabIndex = 1;
             this.txtboxPAYE.Click += new System.EventHandler(this.All_Taxes_Click);
             // 
@@ -470,20 +447,18 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(41, 25);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(31, 20);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(137, 25);
+            this.label11.Size = new System.Drawing.Size(110, 20);
             this.label11.TabIndex = 21;
             this.label11.Text = "Deductions:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(361, 122);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Location = new System.Drawing.Point(271, 99);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(44, 17);
+            this.label12.Size = new System.Drawing.Size(35, 13);
             this.label12.TabIndex = 21;
             this.label12.Text = "PAYE";
             // 
@@ -491,10 +466,9 @@
             // 
             this.btnCalculate.BackColor = System.Drawing.SystemColors.HotTrack;
             this.btnCalculate.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnCalculate.Location = new System.Drawing.Point(659, 779);
-            this.btnCalculate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCalculate.Location = new System.Drawing.Point(562, 632);
             this.btnCalculate.Name = "btnCalculate";
-            this.btnCalculate.Size = new System.Drawing.Size(115, 52);
+            this.btnCalculate.Size = new System.Drawing.Size(86, 42);
             this.btnCalculate.TabIndex = 16;
             this.btnCalculate.Text = "CALCULATE";
             this.btnCalculate.UseVisualStyleBackColor = false;
@@ -503,48 +477,44 @@
             // txtboxEmployeeID
             // 
             this.txtboxEmployeeID.Enabled = false;
-            this.txtboxEmployeeID.Location = new System.Drawing.Point(127, 96);
-            this.txtboxEmployeeID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxEmployeeID.Location = new System.Drawing.Point(95, 78);
             this.txtboxEmployeeID.Name = "txtboxEmployeeID";
-            this.txtboxEmployeeID.Size = new System.Drawing.Size(132, 22);
+            this.txtboxEmployeeID.Size = new System.Drawing.Size(100, 20);
             this.txtboxEmployeeID.TabIndex = 25;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(36, 100);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Location = new System.Drawing.Point(27, 81);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(87, 17);
+            this.label16.Size = new System.Drawing.Size(67, 13);
             this.label16.TabIndex = 24;
             this.label16.Text = "Employee ID";
             // 
             // txtboxPPSNumber
             // 
             this.txtboxPPSNumber.Enabled = false;
-            this.txtboxPPSNumber.Location = new System.Drawing.Point(392, 96);
-            this.txtboxPPSNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxPPSNumber.Location = new System.Drawing.Point(294, 78);
             this.txtboxPPSNumber.Name = "txtboxPPSNumber";
-            this.txtboxPPSNumber.Size = new System.Drawing.Size(199, 22);
+            this.txtboxPPSNumber.Size = new System.Drawing.Size(150, 20);
             this.txtboxPPSNumber.TabIndex = 27;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(301, 100);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Location = new System.Drawing.Point(226, 81);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(89, 17);
+            this.label17.Size = new System.Drawing.Size(68, 13);
             this.label17.TabIndex = 26;
             this.label17.Text = "PPS Number";
             // 
             // txtboxRateHours
             // 
-            this.txtboxRateHours.Location = new System.Drawing.Point(364, 69);
-            this.txtboxRateHours.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxRateHours.Location = new System.Drawing.Point(273, 56);
             this.txtboxRateHours.Name = "txtboxRateHours";
-            this.txtboxRateHours.Size = new System.Drawing.Size(64, 22);
+            this.txtboxRateHours.Size = new System.Drawing.Size(49, 20);
             this.txtboxRateHours.TabIndex = 1;
+            this.txtboxRateHours.Text = "0.00";
             // 
             // pnlHourlyEmployees
             // 
@@ -558,19 +528,17 @@
             this.pnlHourlyEmployees.Controls.Add(this.txtboxOvertime);
             this.pnlHourlyEmployees.Controls.Add(this.txtboxOvertimeRate);
             this.pnlHourlyEmployees.Controls.Add(this.label8);
-            this.pnlHourlyEmployees.Location = new System.Drawing.Point(40, 247);
-            this.pnlHourlyEmployees.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlHourlyEmployees.Location = new System.Drawing.Point(30, 201);
             this.pnlHourlyEmployees.Name = "pnlHourlyEmployees";
-            this.pnlHourlyEmployees.Size = new System.Drawing.Size(595, 194);
+            this.pnlHourlyEmployees.Size = new System.Drawing.Size(446, 158);
             this.pnlHourlyEmployees.TabIndex = 7;
             this.pnlHourlyEmployees.Visible = false;
             // 
             // txtboxGrossPayHourly
             // 
-            this.txtboxGrossPayHourly.Location = new System.Drawing.Point(297, 158);
-            this.txtboxGrossPayHourly.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxGrossPayHourly.Location = new System.Drawing.Point(223, 128);
             this.txtboxGrossPayHourly.Name = "txtboxGrossPayHourly";
-            this.txtboxGrossPayHourly.Size = new System.Drawing.Size(161, 22);
+            this.txtboxGrossPayHourly.Size = new System.Drawing.Size(122, 20);
             this.txtboxGrossPayHourly.TabIndex = 4;
             this.txtboxGrossPayHourly.Click += new System.EventHandler(this.GrossPay_Click);
             // 
@@ -578,10 +546,9 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(47, 158);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label22.Location = new System.Drawing.Point(35, 128);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(99, 22);
+            this.label22.Size = new System.Drawing.Size(78, 17);
             this.label22.TabIndex = 29;
             this.label22.Text = "Gross Pay:";
             // 
@@ -589,20 +556,18 @@
             // 
             this.cmbPayType.Enabled = false;
             this.cmbPayType.FormattingEnabled = true;
-            this.cmbPayType.Location = new System.Drawing.Point(127, 203);
-            this.cmbPayType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbPayType.Location = new System.Drawing.Point(95, 165);
             this.cmbPayType.Name = "cmbPayType";
-            this.cmbPayType.Size = new System.Drawing.Size(289, 24);
+            this.cmbPayType.Size = new System.Drawing.Size(218, 21);
             this.cmbPayType.TabIndex = 6;
             this.cmbPayType.SelectedIndexChanged += new System.EventHandler(this.CmbPayType_SelectedIndexChanged);
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(36, 203);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Location = new System.Drawing.Point(27, 165);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(68, 17);
+            this.label18.Size = new System.Drawing.Size(52, 13);
             this.label18.TabIndex = 30;
             this.label18.Text = "Pay Type";
             // 
@@ -621,37 +586,34 @@
             this.pnlSalariedEmployees.Controls.Add(this.txtboxCommissions);
             this.pnlSalariedEmployees.Controls.Add(this.txtboxSalesReceipts);
             this.pnlSalariedEmployees.Controls.Add(this.label9);
-            this.pnlSalariedEmployees.Location = new System.Drawing.Point(40, 469);
-            this.pnlSalariedEmployees.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlSalariedEmployees.Location = new System.Drawing.Point(30, 381);
             this.pnlSalariedEmployees.Name = "pnlSalariedEmployees";
-            this.pnlSalariedEmployees.Size = new System.Drawing.Size(677, 217);
+            this.pnlSalariedEmployees.Size = new System.Drawing.Size(508, 176);
             this.pnlSalariedEmployees.TabIndex = 8;
             this.pnlSalariedEmployees.Visible = false;
             // 
             // lblCommissionPercentage
             // 
             this.lblCommissionPercentage.AutoSize = true;
-            this.lblCommissionPercentage.Location = new System.Drawing.Point(335, 111);
-            this.lblCommissionPercentage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCommissionPercentage.Location = new System.Drawing.Point(251, 90);
             this.lblCommissionPercentage.Name = "lblCommissionPercentage";
-            this.lblCommissionPercentage.Size = new System.Drawing.Size(167, 17);
+            this.lblCommissionPercentage.Size = new System.Drawing.Size(125, 13);
             this.lblCommissionPercentage.TabIndex = 34;
             this.lblCommissionPercentage.Text = "Commissions Percentage";
             // 
             // txtBoxCommissionPercentage
             // 
-            this.txtBoxCommissionPercentage.Location = new System.Drawing.Point(523, 102);
-            this.txtBoxCommissionPercentage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBoxCommissionPercentage.Location = new System.Drawing.Point(392, 83);
             this.txtBoxCommissionPercentage.Name = "txtBoxCommissionPercentage";
-            this.txtBoxCommissionPercentage.Size = new System.Drawing.Size(44, 22);
+            this.txtBoxCommissionPercentage.Size = new System.Drawing.Size(34, 20);
             this.txtBoxCommissionPercentage.TabIndex = 2;
             // 
             // txtboxGrossPaySalaried_Commission
             // 
-            this.txtboxGrossPaySalaried_Commission.Location = new System.Drawing.Point(136, 180);
-            this.txtboxGrossPaySalaried_Commission.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxGrossPaySalaried_Commission.Enabled = false;
+            this.txtboxGrossPaySalaried_Commission.Location = new System.Drawing.Point(102, 146);
             this.txtboxGrossPaySalaried_Commission.Name = "txtboxGrossPaySalaried_Commission";
-            this.txtboxGrossPaySalaried_Commission.Size = new System.Drawing.Size(160, 22);
+            this.txtboxGrossPaySalaried_Commission.Size = new System.Drawing.Size(121, 20);
             this.txtboxGrossPaySalaried_Commission.TabIndex = 32;
             this.txtboxGrossPaySalaried_Commission.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtboxGrossPaySalaried_Commission.Click += new System.EventHandler(this.GrossPay_Click);
@@ -659,10 +621,9 @@
             // rbCommissions
             // 
             this.rbCommissions.AutoSize = true;
-            this.rbCommissions.Location = new System.Drawing.Point(564, 10);
-            this.rbCommissions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbCommissions.Location = new System.Drawing.Point(423, 8);
             this.rbCommissions.Name = "rbCommissions";
-            this.rbCommissions.Size = new System.Drawing.Size(17, 16);
+            this.rbCommissions.Size = new System.Drawing.Size(14, 13);
             this.rbCommissions.TabIndex = 33;
             this.rbCommissions.TabStop = true;
             this.rbCommissions.UseVisualStyleBackColor = true;
@@ -671,10 +632,9 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(13, 180);
-            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label24.Location = new System.Drawing.Point(10, 146);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(99, 22);
+            this.label24.Size = new System.Drawing.Size(78, 17);
             this.label24.TabIndex = 31;
             this.label24.Text = "Gross Pay:";
             // 
@@ -682,10 +642,9 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(321, 6);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(241, 5);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(219, 25);
+            this.label7.Size = new System.Drawing.Size(172, 20);
             this.label7.TabIndex = 32;
             this.label7.Text = "Commission on Sales";
             // 
@@ -693,132 +652,126 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(4, 6);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Location = new System.Drawing.Point(3, 5);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(203, 25);
+            this.label20.Size = new System.Drawing.Size(157, 20);
             this.label20.TabIndex = 1;
             this.label20.Text = "Salaried Employees";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(13, 68);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Location = new System.Drawing.Point(10, 55);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(70, 17);
+            this.label19.Size = new System.Drawing.Size(54, 13);
             this.label19.TabIndex = 6;
             this.label19.Text = "Basic Pay";
             // 
             // txtboxBasicPaySalary
             // 
-            this.txtboxBasicPaySalary.Location = new System.Drawing.Point(131, 64);
-            this.txtboxBasicPaySalary.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxBasicPaySalary.Location = new System.Drawing.Point(98, 52);
             this.txtboxBasicPaySalary.Name = "txtboxBasicPaySalary";
-            this.txtboxBasicPaySalary.Size = new System.Drawing.Size(132, 22);
+            this.txtboxBasicPaySalary.Size = new System.Drawing.Size(100, 20);
             this.txtboxBasicPaySalary.TabIndex = 0;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(404, 151);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Location = new System.Drawing.Point(303, 123);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(90, 17);
+            this.label21.Size = new System.Drawing.Size(67, 13);
             this.label21.TabIndex = 9;
             this.label21.Text = "Commissions";
             // 
             // txtboxCommissions
             // 
-            this.txtboxCommissions.Location = new System.Drawing.Point(523, 143);
-            this.txtboxCommissions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxCommissions.Location = new System.Drawing.Point(392, 116);
             this.txtboxCommissions.Name = "txtboxCommissions";
-            this.txtboxCommissions.Size = new System.Drawing.Size(132, 22);
+            this.txtboxCommissions.Size = new System.Drawing.Size(100, 20);
             this.txtboxCommissions.TabIndex = 10;
             // 
             // cmbOtherEarnings1
             // 
             this.cmbOtherEarnings1.FormattingEnabled = true;
-            this.cmbOtherEarnings1.Location = new System.Drawing.Point(61, 44);
-            this.cmbOtherEarnings1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbOtherEarnings1.Location = new System.Drawing.Point(46, 36);
             this.cmbOtherEarnings1.Name = "cmbOtherEarnings1";
-            this.cmbOtherEarnings1.Size = new System.Drawing.Size(160, 24);
+            this.cmbOtherEarnings1.Size = new System.Drawing.Size(121, 21);
             this.cmbOtherEarnings1.TabIndex = 9;
+            this.cmbOtherEarnings1.SelectedIndexChanged += new System.EventHandler(this.CmbOtherEarnings1_SelectedIndexChanged);
             // 
             // label25
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(361, 18);
-            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label25.Location = new System.Drawing.Point(271, 15);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(77, 22);
+            this.label25.Size = new System.Drawing.Size(62, 17);
             this.label25.TabIndex = 32;
             this.label25.Text = "Amount";
             // 
             // cmbOtherEarnings2
             // 
             this.cmbOtherEarnings2.FormattingEnabled = true;
-            this.cmbOtherEarnings2.Location = new System.Drawing.Point(61, 72);
-            this.cmbOtherEarnings2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbOtherEarnings2.Location = new System.Drawing.Point(46, 63);
             this.cmbOtherEarnings2.Name = "cmbOtherEarnings2";
-            this.cmbOtherEarnings2.Size = new System.Drawing.Size(160, 24);
+            this.cmbOtherEarnings2.Size = new System.Drawing.Size(121, 21);
             this.cmbOtherEarnings2.TabIndex = 11;
+            this.cmbOtherEarnings2.SelectedIndexChanged += new System.EventHandler(this.CmbOtherEarnings2_SelectedIndexChanged);
             // 
             // txtboxOtherEarnings2
             // 
-            this.txtboxOtherEarnings2.Location = new System.Drawing.Point(365, 72);
-            this.txtboxOtherEarnings2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxOtherEarnings2.Enabled = false;
+            this.txtboxOtherEarnings2.Location = new System.Drawing.Point(274, 63);
             this.txtboxOtherEarnings2.Name = "txtboxOtherEarnings2";
-            this.txtboxOtherEarnings2.Size = new System.Drawing.Size(132, 22);
+            this.txtboxOtherEarnings2.Size = new System.Drawing.Size(100, 20);
             this.txtboxOtherEarnings2.TabIndex = 12;
+            this.txtboxOtherEarnings2.Text = "0.00";
             // 
             // cmbOtherEarnings3
             // 
             this.cmbOtherEarnings3.FormattingEnabled = true;
-            this.cmbOtherEarnings3.Location = new System.Drawing.Point(61, 103);
-            this.cmbOtherEarnings3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbOtherEarnings3.Location = new System.Drawing.Point(46, 90);
             this.cmbOtherEarnings3.Name = "cmbOtherEarnings3";
-            this.cmbOtherEarnings3.Size = new System.Drawing.Size(160, 24);
+            this.cmbOtherEarnings3.Size = new System.Drawing.Size(121, 21);
             this.cmbOtherEarnings3.TabIndex = 13;
+            this.cmbOtherEarnings3.SelectedIndexChanged += new System.EventHandler(this.CmbOtherEarnings3_SelectedIndexChanged);
             // 
             // txtboxOtherEarnings3
             // 
-            this.txtboxOtherEarnings3.Location = new System.Drawing.Point(365, 103);
-            this.txtboxOtherEarnings3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxOtherEarnings3.Enabled = false;
+            this.txtboxOtherEarnings3.Location = new System.Drawing.Point(274, 90);
             this.txtboxOtherEarnings3.Name = "txtboxOtherEarnings3";
-            this.txtboxOtherEarnings3.Size = new System.Drawing.Size(132, 22);
+            this.txtboxOtherEarnings3.Size = new System.Drawing.Size(100, 20);
             this.txtboxOtherEarnings3.TabIndex = 14;
+            this.txtboxOtherEarnings3.Text = "0.00";
             // 
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.DarkRed;
             this.btnExit.ForeColor = System.Drawing.Color.Orange;
-            this.btnExit.Location = new System.Drawing.Point(992, 779);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExit.Location = new System.Drawing.Point(885, 632);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(115, 52);
+            this.btnExit.Size = new System.Drawing.Size(86, 42);
             this.btnExit.TabIndex = 18;
             this.btnExit.Text = "EXIT";
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // btnClear
             // 
             this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnClear.Location = new System.Drawing.Point(827, 779);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClear.Location = new System.Drawing.Point(720, 632);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(115, 52);
+            this.btnClear.Size = new System.Drawing.Size(86, 42);
             this.btnClear.TabIndex = 17;
             this.btnClear.Text = "CLEAR";
             this.btnClear.UseVisualStyleBackColor = false;
             // 
             // txtboxTotalGrossPay
             // 
-            this.txtboxTotalGrossPay.Location = new System.Drawing.Point(342, 148);
-            this.txtboxTotalGrossPay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxTotalGrossPay.Location = new System.Drawing.Point(264, 121);
             this.txtboxTotalGrossPay.Name = "txtboxTotalGrossPay";
-            this.txtboxTotalGrossPay.Size = new System.Drawing.Size(160, 22);
+            this.txtboxTotalGrossPay.Size = new System.Drawing.Size(121, 20);
             this.txtboxTotalGrossPay.TabIndex = 35;
             this.txtboxTotalGrossPay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtboxTotalGrossPay.Click += new System.EventHandler(this.TxtboxTotalGrossPay_Click);
@@ -828,10 +781,9 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(186, 152);
-            this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label30.Location = new System.Drawing.Point(140, 124);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(99, 22);
+            this.label30.Size = new System.Drawing.Size(78, 17);
             this.label30.TabIndex = 34;
             this.label30.Text = "Gross Pay:";
             // 
@@ -839,19 +791,17 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(811, 661);
-            this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label31.Location = new System.Drawing.Point(608, 537);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(110, 25);
+            this.label31.Size = new System.Drawing.Size(87, 20);
             this.label31.TabIndex = 43;
             this.label31.Text = "Payment:";
             // 
             // txtboxNetPay
             // 
-            this.txtboxNetPay.Location = new System.Drawing.Point(1009, 661);
-            this.txtboxNetPay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxNetPay.Location = new System.Drawing.Point(807, 537);
             this.txtboxNetPay.Name = "txtboxNetPay";
-            this.txtboxNetPay.Size = new System.Drawing.Size(151, 22);
+            this.txtboxNetPay.Size = new System.Drawing.Size(164, 20);
             this.txtboxNetPay.TabIndex = 43;
             this.txtboxNetPay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtboxNetPay.Click += new System.EventHandler(this.TxtboxNetPay_Click);
@@ -872,18 +822,19 @@
             this.pnlOtherEarnings.Controls.Add(this.label30);
             this.pnlOtherEarnings.Controls.Add(this.txtboxOtherEarnings3);
             this.pnlOtherEarnings.Controls.Add(this.cmbOtherEarnings3);
-            this.pnlOtherEarnings.Location = new System.Drawing.Point(40, 694);
-            this.pnlOtherEarnings.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlOtherEarnings.Location = new System.Drawing.Point(30, 564);
             this.pnlOtherEarnings.Name = "pnlOtherEarnings";
-            this.pnlOtherEarnings.Size = new System.Drawing.Size(677, 217);
+            this.pnlOtherEarnings.Size = new System.Drawing.Size(508, 176);
             this.pnlOtherEarnings.TabIndex = 44;
             this.pnlOtherEarnings.Visible = false;
             // 
             // Payroll_form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1477, 871);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1108, 708);
             this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.pnlOtherEarnings);
             this.Controls.Add(this.txtboxNetPay);
@@ -906,9 +857,9 @@
             this.Controls.Add(this.cmbEmployeeDetails);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Payroll_form";
             this.Text = "Let\'s do Payroll! - by Appland";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.BtnExit_Click);
             this.Load += new System.EventHandler(this.Payroll_form_Load);
             this.pnlDeductions.ResumeLayout(false);
             this.pnlDeductions.PerformLayout();
