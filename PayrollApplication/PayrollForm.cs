@@ -36,7 +36,7 @@ namespace PayrollApplication
         bool DatesCheckedTo = false;
         bool EmployeeSelected = false;
         bool cmbPaySelected = false;
-        
+
         bool OtherEarnings1Valid = false;
         bool OtherEarnings2Valid = false;
         bool OtherEarnings3Valid = false;
@@ -151,7 +151,7 @@ namespace PayrollApplication
 
         }
 
-       
+
 
 
 
@@ -201,7 +201,7 @@ namespace PayrollApplication
         //}
         private void CmbEmployeeDetails_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadEmployees();
+            SelectEmployee();
         }
 
         private void LoadEmployees()
@@ -210,43 +210,76 @@ namespace PayrollApplication
             {
                 SelectEmployee();
 
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.GetType().Name + ":  \n" + ex.Message + "\n\nSome possible reasons for this message are: \n\n* -You need to select an Employee from the list!!!" + "\n\n* -Error connecting to SQL Database!!\n\n* -Please check all data entered....", "Exception");
+            }
+        }
+
+        private void CmbPayTypeSelected()
+        {
+            if (cmbPayType.SelectedIndex > -1)
+            {
 
 
-
-                if (DatesCheckedFrom == true || DatesCheckedTo == true)
+                if (cmbPayType.SelectedIndex == 0) /*Hourly Pay*/
                 {
+                    HourlyPayCalculations();
 
+                }
 
-                    //conn = new SqlConnection("SQL connection string");
-                    //conn.Open();
-                    //SqlCommand cmd = new SqlCommand("SELECT EmployeeID, PPSNumber FROM EmployeesTable where [First Name] + ' ' + [Last Name] = " + cmbEmployeeDetails.SelectedValue + " ", conn);
-                    //SqlDataReader dr = cmd.ExecuteReader();
-                    //if (dr.Read())
-                    //{
-                    //    txtboxEmployeeID.Text = Convert.ToString(dr["EmployeeID"]);
-                    //    txtboxPPSNumber.Text = Convert.ToString(dr["PPSNumber"]);
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("Data NotFound");
-                    //}
-
-                    int cmbEmployeeIndexSelected = cmbEmployeeDetails.SelectedIndex;
-                    txtboxEmployeeID.Text = (string)Employee_ID.GetValue(cmbEmployeeIndexSelected);
-                    txtboxPPSNumber.Text = (string)PPS_Numbers.GetValue(cmbEmployeeIndexSelected);
-                    txtboxEmployeeID.Enabled = false;
-                    txtboxPPSNumber.Enabled = false;
-                    cmbPayType.Enabled = true;
+                if (cmbPayType.SelectedIndex == 1) /*Salary Pay*/
+                {
+                    SalaryPayCalculations();
 
                 }
 
 
+                if (cmbPayType.SelectedIndex == 2) /*Salary Pay and Commissions*/
 
+                {
+                    SalaryAndCommissionsCalculations();
 
+                }
             }
-            catch (Exception ex)
+
+            //else
+            //{
+            //    if ((cmbPayType.Enabled == true) || (cmbPayType.SelectedIndex == -1 && (DatesCheckedFrom == true || DatesCheckedTo == true) && EmployeeSelected == true))
+            //    {
+            //        cmbPayType.Enabled = true;
+            //        MessageBox.Show("Now, select a Pay Type", "Friendly Advice");
+            //    }
+            //}
+        }
+
+        private void CheckDatesSelected()
+        {
+            if (DatesCheckedFrom == true || DatesCheckedTo == true)
             {
-                MessageBox.Show(ex.GetType().Name + ":  \n" + ex.Message + "\n\nSome possible reasons for this message are: \n\n* -You need to select an Employee from the list!!!" + "\n\n* -Incorrect Values entered in Other Earnings!! \n\n* -Error connecting to SQL Database!!\n\n* -Please check all data entered....", "Exception");
+
+
+                //conn = new SqlConnection("SQL connection string");
+                //conn.Open();
+                //SqlCommand cmd = new SqlCommand("SELECT EmployeeID, PPSNumber FROM EmployeesTable where [First Name] + ' ' + [Last Name] = " + cmbEmployeeDetails.SelectedValue + " ", conn);
+                //SqlDataReader dr = cmd.ExecuteReader();
+                //if (dr.Read())
+                //{
+                //    txtboxEmployeeID.Text = Convert.ToString(dr["EmployeeID"]);
+                //    txtboxPPSNumber.Text = Convert.ToString(dr["PPSNumber"]);
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Data NotFound");
+                //}
+
+
+                cmbPayType.Enabled = true;
+                label30.Visible = true;
+                txtboxTotalGrossPay.Visible = true;
+
             }
         }
 
@@ -261,6 +294,11 @@ namespace PayrollApplication
             else
             {
                 EmployeeSelected = true;
+                int cmbEmployeeIndexSelected = cmbEmployeeDetails.SelectedIndex;
+                txtboxEmployeeID.Text = (string)Employee_ID.GetValue(cmbEmployeeIndexSelected);
+                txtboxPPSNumber.Text = (string)PPS_Numbers.GetValue(cmbEmployeeIndexSelected);
+                txtboxEmployeeID.Enabled = false;
+                txtboxPPSNumber.Enabled = false;
 
                 if (DatesCheckedFrom == false && DatesCheckedTo == false)
                 {
@@ -306,68 +344,11 @@ namespace PayrollApplication
             {
                 DialogResult dr = MessageBox.Show("Please check the Pay FROM and/or TO dates!! \nAre the dates OK?", "Notice", MessageBoxButtons.OK);
             }
-
-            else
-            {
-
-                if (cmbPayType.SelectedIndex > -1)
-                {
-
-                    cmbOtherEarnings1.Enabled = true;
-                    cmbOtherEarnings2.Enabled = true;
-                    cmbOtherEarnings3.Enabled = true;
-
-
-                    if (cmbPayType.SelectedIndex == 0) /*Hourly Pay*/
-                    {
-                   
-                        if (string.IsNullOrEmpty(txtboxHoursWorked.Text) && string.IsNullOrEmpty(txtboxOvertime.Text) && string.IsNullOrEmpty(txtboxRateHours.Text) || 
-                            (ValidEntryHours == false || ValidEntryHourlyRate == false || ValidEntryOvertime == false))
-                        {
-                            MessageBox.Show("Please enter Number of Hours, Pay Rate and Overtime", "Attention");
-                            txtboxTotalGrossPay.Text = "ERROR";
-
-                        }
-                    }
-
-                    if (cmbPayType.SelectedIndex == 1) /*Salary Pay*/
-                    {
-
-                        if (string.IsNullOrEmpty(txtboxBasicPaySalary.Text) || ValidEntrySalary == false)
-                        {
-                            MessageBox.Show("Please enter Basic Pay Amount \nand/or check if employee is on commissions", "Attention");
-                            txtboxTotalGrossPay.Text = "ERROR";
-                        }
-                    }
-
-
-                    if (cmbPayType.SelectedIndex == 2) /*Salary Pay and Commissions*/
-
-                    {
-
-
-                        if (string.IsNullOrEmpty(txtboxBasicPaySalary.Text) && string.IsNullOrEmpty(txtboxSalesReceipts.Text) && string.IsNullOrEmpty(txtBoxCommissionPercentage.Text) 
-                            || (ValidEntrySalary == false || ValidEntrySalesReceipts == false || ValidCommissionPercentage == false))
-                        {
-
-                            MessageBox.Show("Please enter Basic Pay Amount \nand Total Sales Receipts \nand/or Commission Percentage", "Attention");
-                            txtboxTotalGrossPay.Text = "ERROR";
-                        }
-                    }
-                }
-
-                if ((cmbPayType.Enabled == true) || (cmbPayType.SelectedIndex == -1 && (DatesCheckedFrom == true || DatesCheckedTo == true) && EmployeeSelected == true))
-                {
-                    cmbPayType.Enabled = true;
-                    MessageBox.Show("Now select a Pay Type", "Friendly Advice");
-                }
-            }
-
         }
         private void BtnCalculate_Click(object sender, EventArgs e)
         {
             LoadEmployees();
-
+            
             if (cmbPaySelected == false && EmployeeSelected == true)
             {
                 MessageBox.Show("Now select a Pay Type", "Friendly Advice");
@@ -394,26 +375,16 @@ namespace PayrollApplication
             {
                 cmbOtherEarnings1.SelectedIndexChanged += CmbOtherEarnings1_SelectedIndexChanged;
             }
-            else
-            {
-                if (cmbOtherEarnings2.SelectionStart != -1)
-                {
-                    cmbOtherEarnings2.SelectedIndexChanged += CmbOtherEarnings2_SelectedIndexChanged;
-                }
-                else
-                {
-                    if (cmbOtherEarnings3.SelectionStart != -1)
-                    {
-                        cmbOtherEarnings3.SelectedIndexChanged += CmbOtherEarnings3_SelectedIndexChanged;
-                    }
 
-                }
+            if (cmbOtherEarnings2.SelectionStart != -1)
+            {
+                cmbOtherEarnings2.SelectedIndexChanged += CmbOtherEarnings2_SelectedIndexChanged;
             }
 
-
-
-            pnlDeductions.Visible = false;
-
+            if (cmbOtherEarnings3.SelectionStart != -1)
+            {
+                cmbOtherEarnings3.SelectedIndexChanged += CmbOtherEarnings3_SelectedIndexChanged;
+            }
 
 
 
@@ -422,21 +393,18 @@ namespace PayrollApplication
                 cmbOtherDeductions1.SelectedIndexChanged += CmbOtherDeductions1_SelectedIndexChanged;
             }
 
-            else
-            {
-                if (cmbOtherDeductions2.SelectionStart != -1)
-                {
-                    cmbOtherDeductions2.SelectedIndexChanged += CmbOtherDeductions2_SelectedIndexChanged;
-                }
-                else
-                {
-                    if (cmbOtherDeductions3.SelectionStart != -1)
-                    {
-                        cmbOtherDeductions3.SelectedIndexChanged += CmbOtherDeductions3_SelectedIndexChanged;
-                    }
 
-                }
+            if (cmbOtherDeductions2.SelectionStart != -1)
+            {
+                cmbOtherDeductions2.SelectedIndexChanged += CmbOtherDeductions2_SelectedIndexChanged;
             }
+
+            if (cmbOtherDeductions3.SelectionStart != -1)
+            {
+                cmbOtherDeductions3.SelectedIndexChanged += CmbOtherDeductions3_SelectedIndexChanged;
+            }
+
+
 
 
         }
@@ -445,7 +413,7 @@ namespace PayrollApplication
         {
             txtboxOtherEarnings1.Enabled = true;
             txtboxOtherEarnings1.Leave += TxtboxOtherEarnings1_TextChanged;
-           
+
 
         }
 
@@ -474,7 +442,7 @@ namespace PayrollApplication
             txtboxOtherDeductions1.Enabled = true;
             txtboxOtherDeductions1.Leave += TxtboxOtherDeductions1_TextChanged;
 
-           
+
 
         }
 
@@ -495,13 +463,13 @@ namespace PayrollApplication
         private void TxtboxOtherDeductions1_TextChanged(object sender, EventArgs e)
         {
             OtherDeductions1Valid = double.TryParse(txtboxOtherDeductions1.Text, out OtherDeduction1);
-           
+
 
             if (OtherDeductions1Valid == false)
             {
                 MessageBox.Show("Please check the Values entered in Other Deductions!!", "Attention");
             }
-           
+
         }
 
         private void TxtboxOtherDeductions2_TextChanged(object sender, EventArgs e)
@@ -530,13 +498,14 @@ namespace PayrollApplication
         {
 
             OtherEarnings1Valid = double.TryParse(txtboxOtherEarnings1.Text, out OtherEarnings1);
-            
+
             if (OtherEarnings1Valid == false)
             {
                 MessageBox.Show("Please check the Values entered in Other Earnings!!", "Attention");
             }
 
-            TotalGrossPay += OtherEarnings1;
+            TotalGrossPay = TotalGrossPay + OtherEarnings1;
+            txtboxTotalGrossPay.Text = TotalGrossPay.ToString();
 
 
         }
@@ -550,7 +519,8 @@ namespace PayrollApplication
                 MessageBox.Show("Please check the Values entered in Other Earnings!!", "Attention");
             }
 
-            TotalGrossPay += OtherEarnings2;
+            TotalGrossPay = TotalGrossPay + OtherEarnings2;
+            txtboxTotalGrossPay.Text = TotalGrossPay.ToString();
 
         }
 
@@ -564,7 +534,8 @@ namespace PayrollApplication
                 MessageBox.Show("Please check the Values entered in Other Earnings!!", "Attention");
             }
 
-            TotalGrossPay += OtherEarnings3;
+            TotalGrossPay = TotalGrossPay + OtherEarnings3;
+            txtboxTotalGrossPay.Text = TotalGrossPay.ToString();
         }
 
 
@@ -575,66 +546,90 @@ namespace PayrollApplication
             ValidEntrySalesReceipts = double.TryParse(txtboxSalesReceipts.Text, out SalesReceiptsAmount);
             ValidCommissionPercentage = double.TryParse(txtBoxCommissionPercentage.Text, out CommissionPercentage);
 
-
-            if (ValidEntrySalary == false)
+            if (string.IsNullOrEmpty(txtboxBasicPaySalary.Text) && string.IsNullOrEmpty(txtboxSalesReceipts.Text) && string.IsNullOrEmpty(txtBoxCommissionPercentage.Text)
+                           || (ValidEntrySalary == false || ValidEntrySalesReceipts == false || ValidCommissionPercentage == false))
             {
-                txtboxBasicPaySalary.ForeColor = ValidEntrySalary ? Color.Black : Color.Red;
-                MessageBox.Show("Please enter a valid Basic Pay amount", "Reminder");
-                txtboxBasicPaySalary.Tag = "Please enter the Weekly/Bi-Weekly/Monthly Rate of Pay";
-                errorProvider1.BlinkStyle = ErrorBlinkStyle.AlwaysBlink;
-            }
 
-            else if (ValidEntrySalesReceipts == false)
-            {
-                txtboxSalesReceipts.ForeColor = ValidEntrySalesReceipts ? Color.Black : Color.Red;
-                MessageBox.Show("Please enter a valid Sales Receipts amount", "Reminder");
-                txtboxBasicPaySalary.Tag = "Please enter the amount of Sales Receipts on which calculate Commissions";
-                errorProvider1.BlinkStyle = ErrorBlinkStyle.AlwaysBlink;
-            }
-
-            else if (ValidCommissionPercentage == false)
-            {
-                txtBoxCommissionPercentage.ForeColor = ValidCommissionPercentage ? Color.Black : Color.Red;
-                MessageBox.Show("Please enter a valid Commissions Percentage", "Reminder");
-                txtboxBasicPaySalary.Tag = "Please enter the Percentage of Commissions";
-                errorProvider1.BlinkStyle = ErrorBlinkStyle.AlwaysBlink;
+                MessageBox.Show("Please enter Basic Pay Amount \nand Total Sales Receipts \nand/or Commission Percentage", "Attention");
+                txtboxTotalGrossPay.Text = "ERROR";
             }
 
             else
             {
 
-                txtboxCommissions.Text = (SalesReceiptsAmount * (CommissionPercentage / 100)).ToString();
-                Commissions = double.Parse(txtboxCommissions.Text);
-                txtboxGrossPaySalaried_Commission.Text = (SalaryAmount + Commissions).ToString();
-                TotalGrossPay = double.Parse(txtboxGrossPaySalaried_Commission.Text);
-                txtboxTotalGrossPay.Text = TotalGrossPay.ToString();
-                pnlDeductions.Visible = true;
-                pnlOtherEarnings.Visible = true;
 
+
+                if (ValidEntrySalary == false)
+                {
+                    txtboxBasicPaySalary.ForeColor = ValidEntrySalary ? Color.Black : Color.Red;
+                    MessageBox.Show("Please enter a valid Basic Pay amount", "Reminder");
+                    txtboxBasicPaySalary.Tag = "Please enter the Weekly/Bi-Weekly/Monthly Rate of Pay";
+                    errorProvider1.BlinkStyle = ErrorBlinkStyle.AlwaysBlink;
+                }
+
+                if (ValidEntrySalesReceipts == false)
+                {
+                    txtboxSalesReceipts.ForeColor = ValidEntrySalesReceipts ? Color.Black : Color.Red;
+                    MessageBox.Show("Please enter a valid Sales Receipts amount", "Reminder");
+                    txtboxBasicPaySalary.Tag = "Please enter the amount of Sales Receipts on which calculate Commissions";
+                    errorProvider1.BlinkStyle = ErrorBlinkStyle.AlwaysBlink;
+                }
+
+                if (ValidCommissionPercentage == false)
+                {
+                    txtBoxCommissionPercentage.ForeColor = ValidCommissionPercentage ? Color.Black : Color.Red;
+                    MessageBox.Show("Please enter a valid Commissions Percentage", "Reminder");
+                    txtboxBasicPaySalary.Tag = "Please enter the Percentage of Commissions";
+                    errorProvider1.BlinkStyle = ErrorBlinkStyle.AlwaysBlink;
+                }
+
+                else
+                {
+
+                    txtboxCommissions.Text = (SalesReceiptsAmount * (CommissionPercentage / 100)).ToString();
+                    Commissions = double.Parse(txtboxCommissions.Text);
+                    txtboxGrossPaySalaried_Commission.Text = (SalaryAmount + Commissions).ToString();
+                    TotalGrossPay = double.Parse(txtboxGrossPaySalaried_Commission.Text);
+                    txtboxTotalGrossPay.Text = TotalGrossPay.ToString();
+                    pnlDeductions.Visible = true;
+                    pnlOtherEarnings.Visible = true;
+
+                }
             }
         }
 
-       
 
-       
+
+
 
         private void SalaryPayCalculations()
         {
             ValidEntrySalary = double.TryParse(txtboxBasicPaySalary.Text, out SalaryAmount);
-            
-            if (ValidEntrySalary == false)
-            {
-                txtboxBasicPaySalary.ForeColor = ValidEntrySalary ? Color.Black : Color.Red;
 
-                MessageBox.Show("Please enter a valid Basic Pay amount", "Reminder");
-                txtboxBasicPaySalary.Tag = "Please enter the Weekly/Bi-Weekly/Monthly Rate of Pay";
-                errorProvider1.BlinkStyle = ErrorBlinkStyle.AlwaysBlink;
+            if (string.IsNullOrEmpty(txtboxBasicPaySalary.Text) || ValidEntrySalary == false)
+            {
+                MessageBox.Show("Please enter Basic Pay Amount \nand/or check if employee is on commissions", "Attention");
+                txtboxTotalGrossPay.Text = "ERROR";
             }
             else
             {
-                txtboxTotalGrossPay.Text = txtboxGrossPaySalaried_Commission.Text;
-                pnlDeductions.Visible = true;
-                pnlOtherEarnings.Visible = true;
+
+
+
+                if (ValidEntrySalary == false)
+                {
+                    txtboxBasicPaySalary.ForeColor = ValidEntrySalary ? Color.Black : Color.Red;
+
+                    MessageBox.Show("Please enter a valid Basic Pay amount", "Reminder");
+                    txtboxBasicPaySalary.Tag = "Please enter the Weekly/Bi-Weekly/Monthly Rate of Pay";
+                    errorProvider1.BlinkStyle = ErrorBlinkStyle.AlwaysBlink;
+                }
+                else
+                {
+                    txtboxTotalGrossPay.Text = txtboxGrossPaySalaried_Commission.Text;
+                    pnlDeductions.Visible = true;
+                    pnlOtherEarnings.Visible = true;
+                }
             }
         }
 
@@ -645,46 +640,61 @@ namespace PayrollApplication
             ValidEntryHourlyRate = double.TryParse(txtboxRateHours.Text, out HourlyRate);
             ValidEntryOvertime = double.TryParse(txtboxOvertime.Text, out Overtime);
 
-            OvertimeRate = HourlyRate * 1.5;
-            txtboxOvertimeRate.Text = OvertimeRate.ToString();
-            txtboxOvertimeRate.Enabled = false;
-            txtboxGrossPayHourly.Enabled = false;
-
-            double GrossPayHourly;
-            GrossPayHourly = ((HoursWorked * HourlyRate) + (Overtime * OvertimeRate));
-            txtboxGrossPayHourly.Text = GrossPayHourly.ToString("C2", new CultureInfo("en-IE"));
-            txtboxTotalGrossPay.Text = txtboxGrossPayHourly + txtboxBasicPaySalary.Text;
-
-            if (ValidEntryHours == false)
+            if (string.IsNullOrEmpty(txtboxHoursWorked.Text) && string.IsNullOrEmpty(txtboxOvertime.Text) && string.IsNullOrEmpty(txtboxRateHours.Text) ||
+                            (ValidEntryHours == false || ValidEntryHourlyRate == false || ValidEntryOvertime == false))
             {
+                MessageBox.Show("Please enter Number of Hours, Pay Rate and/or Overtime", "Attention");
+                pnlOtherEarnings.Visible = true;
+                txtboxTotalGrossPay.Text = "ERROR";
 
-                txtboxHoursWorked.ForeColor = ValidEntryHours ? Color.Black : Color.Red;
-                MessageBox.Show("Please enter a valid number of hours worked \nExample: 10.25 for 10 hours and 15 minutes", "Reminder");
-                txtboxHoursWorked.Tag = "Please enter a number of Hours Worked";
-                errorProvider1.BlinkStyle = ErrorBlinkStyle.AlwaysBlink;
-            }
-            else if (ValidEntryHourlyRate == false)
-            {
-                txtboxRateHours.ForeColor = ValidEntryHourlyRate ? Color.Black : Color.Red;
-                MessageBox.Show("Please enter a valid rate of hourly pay \nExample: 11.15 for €11.15 an hour", "Reminder");
-
-                txtboxRateHours.Tag = "Please enter a rate of pay per hour";
-                errorProvider1.BlinkStyle = ErrorBlinkStyle.AlwaysBlink;
             }
 
-            else if (ValidEntryOvertime == false)
-            {
-                txtboxOvertime.ForeColor = ValidEntryOvertime ? Color.Black : Color.Red;
-                MessageBox.Show("Please enter a valid number of overtime hours worked \nExample: 2.50 for 2 hours and half \nIf no overtime worked, enter \"0\"", "Reminder");
-
-                txtboxOvertime.Tag = "Please enter a number of overtime hours worked";
-                errorProvider1.BlinkStyle = ErrorBlinkStyle.AlwaysBlink;
-            }
             else
             {
-                txtboxTotalGrossPay.Text = txtboxGrossPayHourly.Text;
-                pnlDeductions.Visible = true;
-                pnlOtherEarnings.Visible = true;
+
+                OvertimeRate = HourlyRate * 1.5;
+                txtboxOvertimeRate.Text = OvertimeRate.ToString();
+                txtboxOvertimeRate.Enabled = false;
+                txtboxGrossPayHourly.Enabled = false;
+                txtboxTotalGrossPay.Visible = true;
+
+                double GrossPayHourly;
+                GrossPayHourly = ((HoursWorked * HourlyRate) + (Overtime * OvertimeRate));
+                txtboxGrossPayHourly.Text = GrossPayHourly.ToString("C2", new CultureInfo("en-IE"));
+                txtboxTotalGrossPay.Text = txtboxGrossPayHourly + txtboxBasicPaySalary.Text;
+
+                if (ValidEntryHours == false)
+                {
+
+                    txtboxHoursWorked.ForeColor = ValidEntryHours ? Color.Black : Color.Red;
+                    MessageBox.Show("Please enter a valid number of hours worked \nExample: 10.25 for 10 hours and 15 minutes", "Hours Worked not Valid");
+                    txtboxHoursWorked.Tag = "Please enter a number of Hours Worked";
+                    errorProvider1.BlinkStyle = ErrorBlinkStyle.AlwaysBlink;
+                }
+                if (ValidEntryHourlyRate == false)
+                {
+                    txtboxRateHours.ForeColor = ValidEntryHourlyRate ? Color.Black : Color.Red;
+                    MessageBox.Show("Please enter a valid rate of hourly pay \nExample: 11.15 for €11.15 an hour", "Rate Not Valid");
+
+                    txtboxRateHours.Tag = "Please enter a rate of pay per hour";
+                    errorProvider1.BlinkStyle = ErrorBlinkStyle.AlwaysBlink;
+                }
+
+                if (ValidEntryOvertime == false)
+                {
+                    txtboxOvertime.ForeColor = ValidEntryOvertime ? Color.Black : Color.Red;
+                    MessageBox.Show("Please enter a valid number of overtime hours worked \nExample: 2.50 for 2 hours and half \nIf no overtime worked, enter \"0\"", "Overtime Not Valid");
+
+                    txtboxOvertime.Tag = "Please enter a number of overtime hours worked";
+                    errorProvider1.BlinkStyle = ErrorBlinkStyle.AlwaysBlink;
+                }
+                else
+                {
+                    txtboxTotalGrossPay.Visible = true;
+                    txtboxTotalGrossPay.Text = txtboxGrossPayHourly.Text;
+                    pnlDeductions.Visible = true;
+
+                }
             }
 
         }
@@ -695,9 +705,9 @@ namespace PayrollApplication
 
         }
 
-       
 
-       
+
+
 
         private void CmbPayType_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -708,6 +718,7 @@ namespace PayrollApplication
                     pnlHourlyEmployees.Visible = true;
                     pnlSalariedEmployees.Visible = false;
                     cmbPaySelected = true;
+                    pnlOtherEarnings.Visible = true;
 
                     break;
 
@@ -720,6 +731,7 @@ namespace PayrollApplication
                     txtBoxCommissionPercentage.Enabled = false;
                     txtboxCommissions.Enabled = false;
                     cmbPaySelected = true;
+                    pnlOtherEarnings.Visible = true;
 
                     break;
 
@@ -732,6 +744,7 @@ namespace PayrollApplication
                     txtBoxCommissionPercentage.Enabled = true;
                     txtboxCommissions.Enabled = false;
                     cmbPaySelected = true;
+                    pnlOtherEarnings.Visible = true;
 
                     break;
 
@@ -777,10 +790,20 @@ namespace PayrollApplication
             Application.Exit();
         }
 
-        private void TxtBoxClicked(object sender, EventArgs e)
+        private void TxtBoxHoursWorkedClicked(object sender, EventArgs e)
         {
             txtboxHoursWorked.Text = "";
-            
+
+        }
+
+        private void TxtBoxHourlyRateClicked(object sender, EventArgs e)
+        {
+            txtboxRateHours.Text = "";
+        }
+
+        private void TxtBoxOvertimeClicked(object sender, EventArgs e)
+        {
+            txtboxOvertime.Text = "";
         }
     }
 }

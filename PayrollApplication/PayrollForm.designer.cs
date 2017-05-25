@@ -177,8 +177,7 @@
             this.txtboxHoursWorked.Name = "txtboxHoursWorked";
             this.txtboxHoursWorked.Size = new System.Drawing.Size(100, 20);
             this.txtboxHoursWorked.TabIndex = 0;
-            this.txtboxHoursWorked.Text = "0.00";
-            this.txtboxHoursWorked.Click += new System.EventHandler(this.TxtBoxClicked);
+            this.txtboxHoursWorked.Click += new System.EventHandler(this.TxtBoxHoursWorkedClicked);
             // 
             // label5
             // 
@@ -195,7 +194,7 @@
             this.txtboxOvertime.Name = "txtboxOvertime";
             this.txtboxOvertime.Size = new System.Drawing.Size(100, 20);
             this.txtboxOvertime.TabIndex = 2;
-            this.txtboxOvertime.Text = "0.00";
+            this.txtboxOvertime.Click += new System.EventHandler(this.TxtBoxOvertimeClicked);
             // 
             // label6
             // 
@@ -466,7 +465,7 @@
             // 
             this.btnCalculate.BackColor = System.Drawing.SystemColors.HotTrack;
             this.btnCalculate.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnCalculate.Location = new System.Drawing.Point(562, 632);
+            this.btnCalculate.Location = new System.Drawing.Point(579, 633);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(86, 42);
             this.btnCalculate.TabIndex = 16;
@@ -514,7 +513,7 @@
             this.txtboxRateHours.Name = "txtboxRateHours";
             this.txtboxRateHours.Size = new System.Drawing.Size(49, 20);
             this.txtboxRateHours.TabIndex = 1;
-            this.txtboxRateHours.Text = "0.00";
+            this.txtboxRateHours.Click += new System.EventHandler(this.TxtBoxHourlyRateClicked);
             // 
             // pnlHourlyEmployees
             // 
@@ -769,7 +768,7 @@
             // 
             // txtboxTotalGrossPay
             // 
-            this.txtboxTotalGrossPay.Location = new System.Drawing.Point(264, 121);
+            this.txtboxTotalGrossPay.Location = new System.Drawing.Point(401, 714);
             this.txtboxTotalGrossPay.Name = "txtboxTotalGrossPay";
             this.txtboxTotalGrossPay.Size = new System.Drawing.Size(121, 20);
             this.txtboxTotalGrossPay.TabIndex = 35;
@@ -780,10 +779,10 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(140, 124);
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(117, 714);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(78, 17);
+            this.label30.Size = new System.Drawing.Size(103, 20);
             this.label30.TabIndex = 34;
             this.label30.Text = "Gross Pay:";
             // 
@@ -815,16 +814,14 @@
             this.pnlOtherEarnings.Controls.Add(this.cmbOtherEarnings1);
             this.pnlOtherEarnings.Controls.Add(this.label10);
             this.pnlOtherEarnings.Controls.Add(this.txtboxOtherEarnings1);
-            this.pnlOtherEarnings.Controls.Add(this.txtboxTotalGrossPay);
             this.pnlOtherEarnings.Controls.Add(this.txtboxOtherEarnings2);
             this.pnlOtherEarnings.Controls.Add(this.label25);
             this.pnlOtherEarnings.Controls.Add(this.cmbOtherEarnings2);
-            this.pnlOtherEarnings.Controls.Add(this.label30);
             this.pnlOtherEarnings.Controls.Add(this.txtboxOtherEarnings3);
             this.pnlOtherEarnings.Controls.Add(this.cmbOtherEarnings3);
             this.pnlOtherEarnings.Location = new System.Drawing.Point(30, 564);
             this.pnlOtherEarnings.Name = "pnlOtherEarnings";
-            this.pnlOtherEarnings.Size = new System.Drawing.Size(508, 176);
+            this.pnlOtherEarnings.Size = new System.Drawing.Size(508, 122);
             this.pnlOtherEarnings.TabIndex = 44;
             this.pnlOtherEarnings.Visible = false;
             // 
@@ -834,14 +831,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1108, 708);
+            this.ClientSize = new System.Drawing.Size(1108, 822);
             this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.pnlOtherEarnings);
             this.Controls.Add(this.txtboxNetPay);
+            this.Controls.Add(this.txtboxTotalGrossPay);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.pnlSalariedEmployees);
+            this.Controls.Add(this.label30);
             this.Controls.Add(this.cmbPayType);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.pnlHourlyEmployees);
