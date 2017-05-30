@@ -1,24 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollApplication", "PayrollApplication\PayrollApplication.csproj", "{EB684066-93B0-4560-8C42-61CFBEC7F6BD}"
-EndProject
-Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "Payroll_Application", "..\..\Desktop\PayrollApplication\bin\Debug\Payroll_Application.exe", "{67EF92B0-47F5-4ACF-9F41-2DDD6EC0A1BD}"
-	ProjectSection(DebuggerProjectSystem) = preProject
-		PortSupplier = 00000000-0000-0000-0000-000000000000
-		Executable = C:\Users\pregazzi\Source\Repos\PayrollApplication\PayrollApplication\bin\Debug\PayrollApplication.exe
-		RemoteMachine = THEUSER-PC
-		StartingDirectory = C:\Users\pregazzi\Source\Repos\PayrollApplication\PayrollApplication\bin\Debug
-		Environment = Default
-		LaunchingEngine = 00000000-0000-0000-0000-000000000000
-		UseLegacyDebugEngines = No
-		LaunchSQLEngine = No
-		AttachLaunchAction = No
-	EndProjectSection
-EndProject
-Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "DependencyValidation1", "DependencyValidation1\DependencyValidation1.modelproj", "{5B879D15-E8E5-4F91-999A-A59B37958EC7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,18 +21,6 @@ Global
 		{EB684066-93B0-4560-8C42-61CFBEC7F6BD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EB684066-93B0-4560-8C42-61CFBEC7F6BD}.Release|x86.ActiveCfg = Release|Any CPU
 		{EB684066-93B0-4560-8C42-61CFBEC7F6BD}.Release|x86.Build.0 = Release|Any CPU
-		{67EF92B0-47F5-4ACF-9F41-2DDD6EC0A1BD}.Debug|Any CPU.ActiveCfg = Release|x86
-		{67EF92B0-47F5-4ACF-9F41-2DDD6EC0A1BD}.Debug|x86.ActiveCfg = Release|x86
-		{67EF92B0-47F5-4ACF-9F41-2DDD6EC0A1BD}.Release|Any CPU.ActiveCfg = Release|x86
-		{67EF92B0-47F5-4ACF-9F41-2DDD6EC0A1BD}.Release|x86.ActiveCfg = Release|x86
-		{5B879D15-E8E5-4F91-999A-A59B37958EC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5B879D15-E8E5-4F91-999A-A59B37958EC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5B879D15-E8E5-4F91-999A-A59B37958EC7}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{5B879D15-E8E5-4F91-999A-A59B37958EC7}.Debug|x86.Build.0 = Debug|Any CPU
-		{5B879D15-E8E5-4F91-999A-A59B37958EC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5B879D15-E8E5-4F91-999A-A59B37958EC7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5B879D15-E8E5-4F91-999A-A59B37958EC7}.Release|x86.ActiveCfg = Release|Any CPU
-		{5B879D15-E8E5-4F91-999A-A59B37958EC7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
